@@ -6,19 +6,19 @@
 <title>The Complete Woosa Guide</title>
 <style>
   :root{
-    /* Blend of Woosa's two forms: Succession (indigo/blue/violet) -> Awakening (crimson/gold) */
-    --bg:#120a16;
-    --bg-2:#1a1024;
-    --panel:#1f1430;
-    --panel-2:#2a1838;
-    --ink:#f3e9f0;
-    --muted:#c0a5c4;
-    --line:#3a2546;
-    --wind:#6f9bff;     /* succession blue */
-    --storm:#a874ff;    /* violet energy */
-    --rain:#ff5e8a;     /* magenta burst (where the two clash) */
+    /* Blend of Woosa's two forms: Succession (indigo/blue/violet) -> Awakening (crimson/gold) — dark navy base, soft purple accents */
+    --bg:#0c1124;
+    --bg-2:#121a36;
+    --panel:#161d3d;
+    --panel-2:#1d2650;
+    --ink:#eef0fb;
+    --muted:#a7aed4;
+    --line:#2a3463;
+    --wind:#7aa2ff;     /* succession blue */
+    --storm:#b8a4ff;    /* soft violet/lavender energy */
+    --rain:#ff8aab;     /* softened magenta burst (where the two clash) */
     --gold:#f4b840;     /* awakening lantern gold */
-    --rose:#ff7a9e;
+    --rose:#ff9cb8;
     --green:#7ee0a0;
     --red:#e8483f;      /* awakening crimson */
     --shadow:0 10px 40px rgba(0,0,0,.5);
@@ -29,10 +29,10 @@
     margin:0;
     font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
     background:
-      radial-gradient(1100px 600px at 8% -10%, rgba(111,155,255,.20), transparent 60%),
-      radial-gradient(900px 520px at 40% -5%, rgba(168,116,255,.16), transparent 55%),
-      radial-gradient(1000px 620px at 100% 0%, rgba(232,72,63,.18), transparent 55%),
-      radial-gradient(700px 500px at 88% 8%, rgba(244,184,64,.12), transparent 55%),
+      radial-gradient(1100px 600px at 8% -10%, rgba(122,162,255,.16), transparent 60%),
+      radial-gradient(900px 520px at 40% -5%, rgba(184,164,255,.16), transparent 55%),
+      radial-gradient(1000px 620px at 100% 0%, rgba(232,72,63,.14), transparent 55%),
+      radial-gradient(700px 500px at 88% 8%, rgba(244,184,64,.10), transparent 55%),
       var(--bg);
     color:var(--ink);
     line-height:1.6;
@@ -66,7 +66,7 @@
   .main{flex:1;min-width:0;padding:40px 48px 120px}
   header.hero{
     border:1px solid var(--line);border-radius:20px;padding:40px 38px;
-    background:linear-gradient(120deg,rgba(111,155,255,.16),rgba(168,116,255,.12) 45%,rgba(232,72,63,.14) 80%,rgba(244,184,64,.12)),var(--panel);
+    background:linear-gradient(120deg,rgba(111,155,255,.16),rgba(184,164,255,.12) 45%,rgba(232,72,63,.14) 80%,rgba(244,184,64,.12)),var(--panel);
     box-shadow:var(--shadow);margin-bottom:14px;position:relative;overflow:hidden;
   }
   header.hero .hero-img{display:block;width:100%;height:280px;object-fit:cover;object-position:center 30%;border-radius:14px;border:1px solid var(--line);margin:0 0 22px;box-shadow:var(--shadow)}
@@ -80,6 +80,26 @@
   h2.sec{font-size:1.55rem;margin:0 0 6px;display:flex;align-items:center;gap:10px}
   h2.sec .ico{font-size:1.4rem}
   .sec-line{height:2px;background:linear-gradient(90deg,var(--wind),var(--storm) 35%,var(--red) 70%,var(--gold) 90%,transparent);border:0;margin:6px 0 22px;border-radius:2px}
+  .sec-divider{position:relative;margin:6px 0 22px;overflow:visible}
+  .sec-divider .sec-line{margin:0}
+  .butterfly{position:absolute;left:-4%;top:-15px;width:30px;height:24px;pointer-events:none;animation:flutter-drift 11s ease-in-out infinite;filter:drop-shadow(0 2px 6px rgba(184,164,255,.35))}
+  .butterfly .wing{transform-box:fill-box;transform-origin:center;animation:wing-flap .46s ease-in-out infinite alternate}
+  .butterfly .wing-r{animation-delay:.07s}
+  @keyframes wing-flap{from{transform:scaleX(1)}to{transform:scaleX(.42)}}
+  @keyframes flutter-drift{
+    0%{left:-4%;top:-10px;opacity:0;transform:rotate(-6deg)}
+    6%{opacity:1}
+    22%{left:22%;top:-20px;transform:rotate(4deg)}
+    40%{left:42%;top:-6px;transform:rotate(-5deg)}
+    58%{left:60%;top:-22px;transform:rotate(5deg)}
+    76%{left:80%;top:-6px;transform:rotate(-4deg)}
+    94%{opacity:1}
+    100%{left:103%;top:-16px;opacity:0;transform:rotate(6deg)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .butterfly{animation:none;opacity:.7}
+    .butterfly .wing{animation:none}
+  }
   h3{font-size:1.15rem;margin:28px 0 12px;color:var(--ink)}
   h4{font-size:.95rem;margin:20px 0 10px;color:var(--gold);text-transform:uppercase;letter-spacing:1px}
   p{color:#d8cee0}
@@ -106,7 +126,7 @@
   /* Key caps */
   .kbd{
     display:inline-block;font-family:'Consolas',monospace;font-size:.8rem;font-weight:700;
-    padding:3px 9px;border-radius:7px;background:#0c0a18;color:var(--gold);
+    padding:3px 9px;border-radius:7px;background:#0a0e20;color:var(--gold);
     border:1px solid #3a3463;border-bottom-width:3px;margin:1px 2px;white-space:nowrap;
   }
 
@@ -135,7 +155,7 @@
   .skill.cat-passive{border-top-color:var(--muted)}
   .skill .name{font-weight:700;font-size:1rem;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;gap:8px}
   .skill .ntitle{display:flex;align-items:center;gap:10px;min-width:0}
-  .skill .sicon{width:34px;height:34px;flex:0 0 auto;border-radius:8px;border:1px solid var(--line);background:#0c0a18;object-fit:cover;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+  .skill .sicon{width:34px;height:34px;flex:0 0 auto;border-radius:8px;border:1px solid var(--line);background:#0a0e20;object-fit:cover;box-shadow:0 2px 6px rgba(0,0,0,.4)}
   .skill .keys{margin-bottom:8px}
   .skill .desc{font-size:.86rem;color:var(--muted)}
   .skill .desc .chain{display:block;margin-top:6px;padding-left:14px;border-left:2px solid var(--line);color:#b9b4e0}
@@ -156,7 +176,7 @@
   .note.info{border-left-color:var(--storm)}
   .note.info::before{content:"ℹ ";opacity:.85}
   .note-inline{font-size:.78rem;color:var(--muted);font-style:italic}
-  .combo-compare{background:rgba(168,116,255,.08);border:1px solid var(--line);border-left:3px solid var(--storm);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.85rem;color:var(--muted)}
+  .combo-compare{background:rgba(184,164,255,.08);border:1px solid var(--line);border-left:3px solid var(--storm);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.85rem;color:var(--muted)}
   .combo-compare b{color:var(--ink)}
   .phase{font-size:.66rem;text-transform:uppercase;letter-spacing:1px;color:var(--storm);font-weight:700;margin:14px 0 6px;display:block}
   .phase:first-child{margin-top:0}
@@ -173,7 +193,7 @@
   th{color:var(--rain);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}
   td{color:#cdc9ef}
 
-  .callout{border-left:3px solid var(--gold);background:rgba(240,198,116,.08);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.9rem}
+  .callout{border-left:3px solid var(--gold);background:rgba(244,184,64,.08);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.9rem}
   .vid-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
   .vid-links a{background:var(--panel-2);border:1px solid var(--line);padding:9px 14px;border-radius:10px;font-size:.85rem}
   .vid-links a:hover{border-color:var(--storm);text-decoration:none}
@@ -198,13 +218,13 @@
   .addon-row{display:grid;grid-template-columns:52px 1.2fr 1fr 40px;gap:16px;align-items:center;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:12px 16px;cursor:pointer;transition:border-color .2s,transform .15s,background .2s}
   .addon-row:hover{border-color:var(--storm);transform:translateY(-2px)}
   .addon-row.active{border-color:var(--gold);background:linear-gradient(180deg, rgba(244,184,64,.10), rgba(42,24,56,.7))}
-  .addon-icon{width:46px;height:46px;border-radius:10px;border:1px solid var(--line);background:#0c0a18;object-fit:cover;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+  .addon-icon{width:46px;height:46px;border-radius:10px;border:1px solid var(--line);background:#0a0e20;object-fit:cover;box-shadow:0 2px 6px rgba(0,0,0,.4)}
   .addon-info b{display:block;font-size:.98rem;margin-bottom:3px}
   .addon-info span{display:block;color:var(--muted);font-size:.85rem;line-height:1.35}
   .addon-effect .lbl{display:block;color:var(--muted);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
   .addon-effect .eff{display:block;color:var(--gold);font-size:.85rem;line-height:1.4}
   .addon-row.active .addon-effect .eff{color:var(--ink)}
-  .addon-swap{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#0c0a18;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:1.05rem;transition:transform .25s,color .2s,border-color .2s}
+  .addon-swap{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#0a0e20;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:1.05rem;transition:transform .25s,color .2s,border-color .2s}
   .addon-row.active .addon-swap{transform:rotate(180deg);color:var(--gold);border-color:var(--gold)}
   @media (max-width:760px){
     .addon-row{grid-template-columns:44px 1fr;grid-template-rows:auto auto}
@@ -260,7 +280,14 @@
     <!-- INTRO -->
     <section id="intro">
       <h2 class="sec"><span class="ico">🌸</span> Introduction</h2>
-      <hr class="sec-line">
+      <div class="sec-divider">
+        <hr class="sec-line">
+        <svg class="butterfly" viewBox="0 0 32 26" aria-hidden="true">
+          <g class="wing wing-l"><path d="M16 13 C 6 1, -3 5, 3 14 C 7 21, 14 19, 16 13 Z" fill="var(--storm)"/></g>
+          <g class="wing wing-r"><path d="M16 13 C 26 1, 35 5, 29 14 C 25 21, 18 19, 16 13 Z" fill="var(--rain)"/></g>
+          <ellipse cx="16" cy="13" rx="1.3" ry="6.5" fill="var(--ink)" opacity=".75"/>
+        </svg>
+      </div>
       <div class="card">
         <p class="lead">Woosa is a master of the Do Arts — a graceful yet deadly caster who commands wind, rain, and thunder. Whether she's sweeping through mobs with elegant AOE or weaving through enemies in PvP with slippery movement and precise CC, Woosa rewards players who enjoy fluidity, control, and tactical spellcasting.</p>
         <p>This guide gives you a complete, polished overview of both <b>Succession</b> and <b>Awakening</b>, including combos, mechanics, and practical insights.</p>
@@ -271,7 +298,14 @@
     <!-- IDENTITY -->
     <section id="identity">
       <h2 class="sec"><span class="ico">🌧️</span> Class Identity & Playstyle</h2>
-      <hr class="sec-line">
+      <div class="sec-divider">
+        <hr class="sec-line">
+        <svg class="butterfly" viewBox="0 0 32 26" aria-hidden="true">
+          <g class="wing wing-l"><path d="M16 13 C 6 1, -3 5, 3 14 C 7 21, 14 19, 16 13 Z" fill="var(--storm)"/></g>
+          <g class="wing wing-r"><path d="M16 13 C 26 1, 35 5, 29 14 C 25 21, 18 19, 16 13 Z" fill="var(--rain)"/></g>
+          <ellipse cx="16" cy="13" rx="1.3" ry="6.5" fill="var(--ink)" opacity=".75"/>
+        </svg>
+      </div>
       <div class="card">
         <h4>Woosa excels at</h4>
         <ul class="clean">
@@ -291,7 +325,14 @@
     <!-- ============ SUCCESSION ============ -->
     <section id="succ-mechanics">
       <h2 class="sec"><span class="ico">🌪️</span> Succession Woosa</h2>
-      <hr class="sec-line">
+      <div class="sec-divider">
+        <hr class="sec-line">
+        <svg class="butterfly" viewBox="0 0 32 26" aria-hidden="true">
+          <g class="wing wing-l"><path d="M16 13 C 6 1, -3 5, 3 14 C 7 21, 14 19, 16 13 Z" fill="var(--storm)"/></g>
+          <g class="wing wing-r"><path d="M16 13 C 26 1, 35 5, 29 14 C 25 21, 18 19, 16 13 Z" fill="var(--rain)"/></g>
+          <ellipse cx="16" cy="13" rx="1.3" ry="6.5" fill="var(--ink)" opacity=".75"/>
+        </svg>
+      </div>
       <div class="card">
         <h3 style="margin-top:0">Core Mechanics</h3>
         <p>Succession revolves around:</p>
@@ -407,7 +448,14 @@
     <!-- ============ AWAKENING ============ -->
     <section id="awk-lore">
       <h2 class="sec"><span class="ico">🌙</span> Awakening Woosa</h2>
-      <hr class="sec-line">
+      <div class="sec-divider">
+        <hr class="sec-line">
+        <svg class="butterfly" viewBox="0 0 32 26" aria-hidden="true">
+          <g class="wing wing-l"><path d="M16 13 C 6 1, -3 5, 3 14 C 7 21, 14 19, 16 13 Z" fill="var(--storm)"/></g>
+          <g class="wing wing-r"><path d="M16 13 C 26 1, 35 5, 29 14 C 25 21, 18 19, 16 13 Z" fill="var(--rain)"/></g>
+          <ellipse cx="16" cy="13" rx="1.3" ry="6.5" fill="var(--ink)" opacity=".75"/>
+        </svg>
+      </div>
       <div class="card">
         <h3 style="margin-top:0">Lore & Theme</h3>
         <p>Awakening Woosa forms a pact with the spirit <b>Sah</b>, gaining the <b>Soul Tome</b> and <b>Calligraphy Brush</b>. Her kit revolves around Sari Flowers, delayed explosions, and elegant magical patterns.</p>
@@ -505,7 +553,14 @@
     <!-- RABAMS -->
     <section id="rabams">
       <h2 class="sec"><span class="ico">🌸</span> Rabams (Enhanced Skills) & Core Skills</h2>
-      <hr class="sec-line">
+      <div class="sec-divider">
+        <hr class="sec-line">
+        <svg class="butterfly" viewBox="0 0 32 26" aria-hidden="true">
+          <g class="wing wing-l"><path d="M16 13 C 6 1, -3 5, 3 14 C 7 21, 14 19, 16 13 Z" fill="var(--storm)"/></g>
+          <g class="wing wing-r"><path d="M16 13 C 26 1, 35 5, 29 14 C 25 21, 18 19, 16 13 Z" fill="var(--rain)"/></g>
+          <ellipse cx="16" cy="13" rx="1.3" ry="6.5" fill="var(--ink)" opacity=".75"/>
+        </svg>
+      </div>
       <div class="card">
         <h4>Rabam Options</h4>
         <table>
@@ -530,7 +585,14 @@
     <!-- ADDONS -->
     <section id="addons">
       <h2 class="sec"><span class="ico">🌈</span> Add-ons (General Recommendations)</h2>
-      <hr class="sec-line">
+      <div class="sec-divider">
+        <hr class="sec-line">
+        <svg class="butterfly" viewBox="0 0 32 26" aria-hidden="true">
+          <g class="wing wing-l"><path d="M16 13 C 6 1, -3 5, 3 14 C 7 21, 14 19, 16 13 Z" fill="var(--storm)"/></g>
+          <g class="wing wing-r"><path d="M16 13 C 26 1, 35 5, 29 14 C 25 21, 18 19, 16 13 Z" fill="var(--rain)"/></g>
+          <ellipse cx="16" cy="13" rx="1.3" ry="6.5" fill="var(--ink)" opacity=".75"/>
+        </svg>
+      </div>
       <div class="card">
         <h4>Succession</h4>
         <p>For the moment usable — will update when Black Desert Global Lab hits live servers.</p>
@@ -544,7 +606,14 @@
     <!-- FINAL -->
     <section id="final">
       <h2 class="sec"><span class="ico">🌟</span> Final Thoughts</h2>
-      <hr class="sec-line">
+      <div class="sec-divider">
+        <hr class="sec-line">
+        <svg class="butterfly" viewBox="0 0 32 26" aria-hidden="true">
+          <g class="wing wing-l"><path d="M16 13 C 6 1, -3 5, 3 14 C 7 21, 14 19, 16 13 Z" fill="var(--storm)"/></g>
+          <g class="wing wing-r"><path d="M16 13 C 26 1, 35 5, 29 14 C 25 21, 18 19, 16 13 Z" fill="var(--rain)"/></g>
+          <ellipse cx="16" cy="13" rx="1.3" ry="6.5" fill="var(--ink)" opacity=".75"/>
+        </svg>
+      </div>
       <div class="card">
         <p class="lead">Woosa is one of the most elegant, fluid, and rewarding classes. Whether you prefer the storm-weaving flow of Succession or the explosive artistry of Awakening, she offers depth, mobility, and style that few classes can match.</p>
         <ul class="clean">
